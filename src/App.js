@@ -18,6 +18,7 @@ const App = (props) => {
   const generateRandomIntegerInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
   var start = () => {
     props.changeButtonText("Shaking !!");
     /*Shaking*/
@@ -25,7 +26,7 @@ const App = (props) => {
     props.changeApple1Class({ class: "apple a1 shaking" });
     props.changeApple2Class({ class: "apple a2 shaking" });
     props.changeApple3Class({ class: "apple a3 shaking" });
-    // for 3 sn
+    // After 3 seconds do the scope
     setTimeout(() => {
       props.changeButtonText("Dropped");
       props.changeTreeClass({ class: "tree" });
