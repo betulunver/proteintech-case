@@ -3,16 +3,16 @@ const INITIAL_STATE = {
     buttonText: "Start",
     shaking: false,
     tree: {
-        class: ["tree"]
+        class: "tree"
     },
     apple1: {
-        class: ["apple", "a1"]
+        class: "apple a1"
     },
     apple2: {
-        class: ["apple", "a2"]
+        class: "apple a2"
     },
     apple3: {
-        class: ["apple", "a3"]
+        class: "apple a3"
     }
 }
 export const reducer = (state = INITIAL_STATE, action) => {

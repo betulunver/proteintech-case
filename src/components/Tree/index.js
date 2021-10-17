@@ -7,10 +7,10 @@ const Tree = (props) => {
     console.log("tree",props)
     return (
         <div className={"tree-area"}>
-             <img src={tree} className={props.tree.class.join(" ")} alt="apple" />
-            <Apple className={props.apple1.class.join(" ")}></Apple>
-            <Apple  className={props.apple2.class.join(" ")}></Apple>
-            <Apple  className={props.apple3.class.join(" ")}></Apple>
+             <img src={tree} className={props.tree.class} alt="tree" />
+            <Apple className={props.apple1.class}></Apple>
+            <Apple  className={props.apple2.class}></Apple>
+            <Apple  className={props.apple3.class}></Apple>
         </div>
     )
 }

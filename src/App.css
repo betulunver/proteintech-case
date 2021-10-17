@@ -13,7 +13,6 @@
   height: 600px;
   display: flex;
   justify-content: center;
-  cursor: pointer;
 }
 .apple {
   position: absolute;
@@ -55,60 +54,56 @@
 .a1,
 .a2,
 .a3{
-  transition: all 0.2s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  transition: all 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
 }
 .a1-dropped {
-  top: 370px;
+  top: 500px;
+  left:150px;
 }
 .a2-dropped {
-  top: 382px;
+  top: 500px;
 }
 .a3-dropped {
-  top: 368px;
-  left: 48px;
+  top: 500px;
+  left: 100px;
 }
 
 .a1-into-basket{
-  top: 368px;
-  left: 48px;
+  top: 400px;
+  left:510px;
 }
 .a2-into-basket{
-  top: 368px;
-  left: 48px;
+  top:400px;
+  left: 630px;
 }
 .a3-into-basket{
-  top: 368px;
-  left: 48px;
-}
-.shaking {
-  animation-name: wobble;
-  animation-duration: infinite;
-  animation-iteration-count: 3;
-}
-@keyframes wobble {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  15% {
-    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -5deg);
-  }
-  30% {
-    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
-  }
-  45% {
-    transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -3deg);
-  }
-  60% {
-    transform: translate3d(7%, 0, 0) rotate3d(0, 0, 1, 2deg);
-  }
-  75% {
-    transform: translate3d(-3%, 0, 0) rotate3d(0, 0, 1, -1deg);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
+  top: 400px;
+  left: 590px;
 }
 
+.shaking {
+  animation-name: wobble;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+}
+
+@keyframes wobble {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 .drop {
   animation: drop 1.2s forwards;
 }
@@ -128,18 +123,19 @@
   }
   to {
     opacity: 0;
-    transform: translate3d(0, 2000px, 0) rotate3d(0, 0, 1, 10deg);
+    transform: translate3d(0, 1000px, 0) rotate3d(0, 0, 1, 10deg);
   }
 }
 .text-area {
   position: absolute;
-  bottom: 2%;
+  top: 80%;
+  left: 15%;
   z-index: 100;        
 }      
 #start-button {
   font-family: "Rock Salt", cursive;
   text-align: center;
-  font-size: 12px;
+  font-size: 36px;
   color: rgb(79, 51, 117);
   border-radius: 75% 5% 44% 4% / 8% 6% 7% 17%;
   background: rgb(201, 151, 214);
@@ -160,4 +156,7 @@
   display:flex;
   justify-content: right;  
   bottom:2%; 
+  right: 100px;
+height:auto;
+bottom: -150px;
 }

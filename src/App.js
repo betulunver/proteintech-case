@@ -13,21 +13,43 @@ import {
 
 
 const App = (props) => {
+
+  // Generate a random number
+  const generateRandomIntegerInRange = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   var start = () => {
-    props.changeButtonText("Shaking")
-    props.changeTreeClass({ class: ["tree", "shaking"] });
-    props.changeApple1Class({ class: ["apple","a1","shaking"] });
-    props.changeApple2Class({ class: ["apple","a2","shaking"] });
-    props.changeApple3Class({ class: ["apple","a3","shaking"] });
-
+    props.changeButtonText("Shaking !!");
+    /*Shaking*/
+    props.changeTreeClass({ class: "tree shaking" });
+    props.changeApple1Class({ class: "apple a1 shaking" });
+    props.changeApple2Class({ class: "apple a2 shaking" });
+    props.changeApple3Class({ class: "apple a3 shaking" });
+    // for 3 sn
     setTimeout(() => {
-        props.changeTreeClass({ class: ["tree"] });
-        props.changeApple1Class({ class: ["apple","a1"] });
-        props.changeApple2Class({ class: ["apple","a2"] });
-        props.changeApple3Class({ class: ["apple","a3"] });
+      props.changeButtonText("Dropped");
+      props.changeTreeClass({ class: "tree" });
+      props.changeApple1Class({ class: "apple a1" });
+      props.changeApple2Class({ class: "apple a2" });
+      props.changeApple3Class({ class: "apple a3" });
 
+      //After shaking effect, more than one apple will be dropped in different time
+      for (let i = 1; i <= 3; i++) {
+        var time = generateRandomIntegerInRange(1000, 3000);
+        props.changeButtonText(`The ${i}apple is falling!!`);
+        setTimeout(() => {
+          props[`changeApple${i}Class`]({ class: [`apple a${i} a${i}-dropped`] });
+          //Appear on the basket
+          setTimeout(() => {
+            props[`changeApple${i}Class`]({ class: [`apple a${i} a${i}-into-basket`] });
+          }, 1000);
+        }, time);
+      }
     }, 3000);
-}
+    //And Done !
+    props.changeButtonText("All apples picked !");
+
+  }
 
   return (
     <div>
@@ -49,4 +71,4 @@ const mapActionsToProps = {
 };
 
 
-export default connect(mapStateToProps,mapActionsToProps)(App);
+export default connect(mapStateToProps, mapActionsToProps)(App);
