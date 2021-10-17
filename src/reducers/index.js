@@ -1,7 +1,7 @@
 import * as type from '../actions/type';
 const INITIAL_STATE = {
     buttonText: "Start",
-    shaking: false,
+    animation: type.STATUS_TYPE.NOT_PLAYING,
     tree: {
         class: "tree"
     },
@@ -27,6 +27,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
             return { ...state, apple2: action.payload }
         case type.CHANGE_APPLE3_CLASS:
             return { ...state, apple3: action.payload }
+        case type.CHANGE_ANIMATION_STATUS:
+            return { ...state, animation: action.payload }
         default:
             return state;
     }

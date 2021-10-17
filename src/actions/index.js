@@ -29,3 +29,9 @@ export const changeApple3Class = classArray =>{
         payload: classArray //apple3 :{ class: " " }
     }
 }
+export const changeAnimationStatus = status =>{
+    return {
+        type: type.CHANGE_ANIMATION_STATUS,
+        payload: status //animation : boolean
+    }
+}

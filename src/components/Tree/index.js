@@ -4,7 +4,6 @@ import tree from '../../assets/tree-park-svgrepo-com.svg';
 import Apple from '../Apple';
 
 const Tree = (props) => {
-    console.log("tree",props)
     return (
         <div className={"tree-area"}>
              <img src={tree} className={props.tree.class} alt="tree" />

@@ -8,9 +8,10 @@ import {
   changeTreeClass,
   changeApple1Class,
   changeApple2Class,
-  changeApple3Class
+  changeApple3Class,
+  changeAnimationStatus
 } from './actions';
-
+import { STATUS_TYPE } from './actions/type';
 
 const App = (props) => {
 
@@ -20,7 +21,8 @@ const App = (props) => {
   }
 
   var start = () => {
-    props.changeButtonText("Shaking !!");
+    props.changeAnimationStatus(STATUS_TYPE.PLAYING);
+    props.changeButtonText("Shaking!!");
     /*Shaking*/
     props.changeTreeClass({ class: "tree shaking" });
     props.changeApple1Class({ class: "apple a1 shaking" });
@@ -28,7 +30,7 @@ const App = (props) => {
     props.changeApple3Class({ class: "apple a3 shaking" });
     // After 3 seconds do the scope
     setTimeout(() => {
-      props.changeButtonText("Dropped");
+      props.changeButtonText("The dropping begin!!");
       props.changeTreeClass({ class: "tree" });
       props.changeApple1Class({ class: "apple a1" });
       props.changeApple2Class({ class: "apple a2" });
@@ -37,21 +39,21 @@ const App = (props) => {
       //After shaking effect, more than one apple will be dropped in different time
       for (let i = 1; i <= 3; i++) {
         var time = generateRandomIntegerInRange(1000, 3000);
-        props.changeButtonText(`The ${i}apple is falling!!`);
         setTimeout(() => {
+          props.changeButtonText(`The ${i}.apple is falling!!`);
           props[`changeApple${i}Class`]({ class: [`apple a${i} a${i}-dropped`] });
           //Appear on the basket
           setTimeout(() => {
+            props.changeButtonText(`The ${i}.apple on the basket!!`);
             props[`changeApple${i}Class`]({ class: [`apple a${i} a${i}-into-basket`] });
           }, 1000);
         }, time);
       }
-    }, 3000);
-    //And Done !
-    props.changeButtonText("All apples picked !");
-
+    }, 3000)
   }
-
+  if (props.animations === STATUS_TYPE.DONE) {
+    props.changeButtonText("All apples picked!!");
+  }
   return (
     <div>
       <Tree></Tree>
@@ -68,7 +70,8 @@ const mapActionsToProps = {
   changeTreeClass,
   changeApple1Class,
   changeApple2Class,
-  changeApple3Class
+  changeApple3Class,
+  changeAnimationStatus
 };
 
 

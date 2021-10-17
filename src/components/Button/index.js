@@ -8,9 +8,7 @@ import {
     changeApple3Class
 } from '../../actions';
 
-const Button = (props) => {
-console.log("button",props)
-    
+const Button = (props) => {   
     return (
         <div className="text-area">
             <span id="start-button" onClick={props.start}>
