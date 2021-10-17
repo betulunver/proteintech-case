@@ -1,19 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { start } from '../../actions';
-import "../styles.css"
+import {
+    changeButtonText,
+    changeTreeClass,
+    changeApple1Class,
+    changeApple2Class,
+    changeApple3Class
+} from '../../actions';
 
 const Button = (props) => {
-    console.log("button",props)
+console.log("button",props)
+    
     return (
-        <div>
-            <button onClick={()=> props.start("Shaking")}>{props.buttonText}</button>
+        <div className="text-area">
+            <span id="start-button" onClick={props.start}>
+                {props.buttonText}
+            </span>
         </div>
     )
 }
 const mapStateToProps = state => {
     return state;
-  }
-  
-const mapActionsToProps = {start};
-export default connect(mapStateToProps, mapActionsToProps) (Button)
+}
+
+const mapActionsToProps = {
+    changeButtonText,
+    changeTreeClass,
+    changeApple1Class,
+    changeApple2Class,
+    changeApple3Class
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(Button)

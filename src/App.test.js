@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
 import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
+});
+
+test('button text change', () => {
+  render(<App />);
+  const buttonEl = screen.getByText(/Start/i);
+    
+  userEvent.click(buttonEl);
+  expect(buttonEl).toHaveTextContent(/Shaking/i);
 });

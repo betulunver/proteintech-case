@@ -1,11 +1,12 @@
 import React from 'react'
+import basket from '../../assets/basket-svgrepo-com.svg';
 
 const Basket = (props) => {
     console.log("basket",props)
     return (
-        <div>
-            
-        </div>
+        
+           <img src={basket} alt="basket" />
+     
     )
 }
 
