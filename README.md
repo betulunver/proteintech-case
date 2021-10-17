@@ -1,3 +1,5 @@
+![Alt text](https://github.com/betulunver/proteintech-case/blob/master/src/assets/start.PNG "Start")
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
